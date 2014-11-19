@@ -4532,7 +4532,8 @@ a.label:focus {
   top: -1px;
 }
 .label-default {
-  background-color: #aea79f;
+  color: #ffffff;
+  background-color: #231F20;
 }
 .label-default[href]:hover,
 .label-default[href]:focus {
@@ -5505,7 +5506,8 @@ button.close {
 }
 .modal-content {
   position: relative;
-  background-color: #ffffff;
+  background-color: #333333;
+  color:#ffffff;
   border: 1px solid #999999;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
