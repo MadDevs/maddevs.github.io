@@ -17,8 +17,8 @@ function main() {
 
    var display = gamejs.display.getSurface();
    console.log(display.getRect().width)
-   var spear = gamejs.image.load('./spear.png');
-   var unit = gamejs.image.load('./unit.png');
+   var spear = gamejs.image.load('../images/spear.png');
+   var unit = gamejs.image.load('../images/unit.png');
 
    // create image masks from surface
    var mUnit = new pixelcollision.Mask(unit);
