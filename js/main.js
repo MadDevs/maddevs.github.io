@@ -67,7 +67,7 @@ function main() {
 };
 
 gamejs.preload([
-   './spear.png',
-   './unit.png',
+   '../images/spear.png',
+   '../images/unit.png',
 ]);
 gamejs.ready(main);
