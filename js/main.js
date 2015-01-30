@@ -47,7 +47,7 @@
       }
    });
 
-   gamejs.event.onMouseMotion(function(event) {
+/*   gamejs.event.onMouseMotion(function(event) {
       if (display.rect.collidePoint(event.pos)) {
          var y = event.pos[0]-(unitPosition[0]+mUnit.getSize()[0]/2);
          var x = (unitPosition[1]+mUnit.getSize()[1]/2)-event.pos[1];
@@ -61,11 +61,11 @@
          console.log(x+","+y)
       }
    });
-
+*/
    gamejs.onTick(function() {
       switch(dir){
          case 'r':
-         spearPosition = $v.add(spearPosition, [display.getRect().width/5,0]);
+         spearPosition = $v.add(spearPosition, [display.getRect().width/50,0]);
          if(spearPosition[0]+mSpear.getSize()[0]>=display.getRect().width){
             spearPosition[0]=display.getRect().width-mSpear.getSize()[0];
             dir = 'd';
@@ -73,7 +73,7 @@
          }
          break;
          case 'd':
-         spearPosition = $v.add(spearPosition, [0,display.getRect().height/5]);
+         spearPosition = $v.add(spearPosition, [0,display.getRect().height/50]);
          if(spearPosition[1]+mSpear.getSize()[1]>=display.getRect().height){
             spearPosition[1]=display.getRect().height-mSpear.getSize()[1];
             dir = 'l';
@@ -81,7 +81,7 @@
          }
          break;
          case 'l':
-         spearPosition = $v.add(spearPosition, [-display.getRect().width/5,0]);
+         spearPosition = $v.add(spearPosition, [-display.getRect().width/50,0]);
          if(spearPosition[0]<=0){
             spearPosition[0]=0;
             dir = 'u';
@@ -89,7 +89,7 @@
          }
          break;
          case 'u':
-         spearPosition = $v.add(spearPosition, [0,-display.getRect().height/5]);
+         spearPosition = $v.add(spearPosition, [0,-display.getRect().height/50]);
          if(spearPosition[1]<=0){
             spearPosition[1]=0;
             dir = 'r';
@@ -97,9 +97,19 @@
          }
          break;
       }
+      var y = (spearPosition[0]+mSpear.getSize()[0]/2)-(unitPosition[0]+mUnit.getSize()[0]/2);
+      var x = (unitPosition[1]+mUnit.getSize()[1]/2)-(spearPosition[1]+mSpear.getSize()[1]/2);
+      manangl = $angles.degrees(Math.atan(x/y));
+      if(y<0){
+         manangl+=180;
+      }else if(x<0){
+         manangl+=360;
+      }
       // draw
       display.clear();
       display.blit(bg, [0,0]);
+      gamejs.graphics.line(display, "#ff0000", [unitPosition[0]+mUnit.getSize()[0]/2,unitPosition[1]+mUnit.getSize()[1]/2],
+         [spearPosition[0]+mSpear.getSize()[0]/2,spearPosition[1]+mSpear.getSize()[1]/2], 3)
       var sp = new gamejs.graphics.Surface(mSpear.overlapRect(mSpear));
       sp.blit(spear, [0,0]);
       display.blit(sp.rotate(angle), spearPosition);
