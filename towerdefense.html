@@ -8,8 +8,8 @@
     <link rel="shortcut icon" href="images/MadDevsicon.png">
     <script src="js/gamejs.js"></script>
     <script>
-        require.setModuleRoot('./js/');
-        require.run('main')
+    require.setModuleRoot('./js/');
+    require.run('main')
     </script>
     <title>Mad Devs</title>
 </head>
@@ -30,22 +30,23 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="./index.html"><b>Mad Devs</b></a></li>
                 </ul>
+                <ul class="nav navbar-nav navbar-center">
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a>Powered by</a></li>
+                    <li ><a href="http://gamejs.org">GameJs</a></li>
                     <li><a href="https://github.com/MadDevs">Github</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <br><br>
-        <div>
+    <div>
         <div id="gjs-loader">
-         <progress max=1 min=0 steps=0.1></progress>
-         <br/>Loading...
-        </div>
-        <canvas id="gjs-canvas"></canvas>
-        <p class="footer">
-            Powered by <a href="http://gamejs.org">GameJs</a>.
-        </p>
-    </div>
+           <progress max=1 min=0 steps=0.1></progress>
+           <br/>Loading...
+       </div>
+       <canvas id="gjs-canvas"></canvas>
+   </div>
 </body>
 </html>
